@@ -12,11 +12,13 @@ class DishDetail extends Component {
         const commentList =  comments.map((comment) => {
             if(comment != null) {
                 return (
-                    <li key={comment.id} className="mt-3 mb-3">
-                        {comment.comment}
-                        <br/>
-                        -- {comment.author}, {comment.date.substring(0, 10)}
-                    </li>
+                    <div class="container">
+                        <li key={comment.id} className="mt-3 mb-3">
+                            {comment.comment}
+                            <br/>
+                            -- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+                        </li>
+                    </div>
                 );
             }
             else{
